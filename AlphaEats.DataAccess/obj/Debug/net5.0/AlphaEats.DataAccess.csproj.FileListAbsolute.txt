@@ -1,0 +1,14 @@
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/bin/Debug/net5.0/AlphaEats.DataAccess.deps.json
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/bin/Debug/net5.0/AlphaEats.DataAccess.runtimeconfig.json
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/bin/Debug/net5.0/AlphaEats.DataAccess.runtimeconfig.dev.json
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/bin/Debug/net5.0/AlphaEats.DataAccess.dll
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/bin/Debug/net5.0/ref/AlphaEats.DataAccess.dll
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/bin/Debug/net5.0/AlphaEats.DataAccess.pdb
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/AlphaEats.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/AlphaEats.DataAccess.AssemblyInfoInputs.cache
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/AlphaEats.DataAccess.AssemblyInfo.cs
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/AlphaEats.DataAccess.csproj.CoreCompileInputs.cache
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/AlphaEats.DataAccess.dll
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/ref/AlphaEats.DataAccess.dll
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/AlphaEats.DataAccess.pdb
+/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/Debug/net5.0/AlphaEats.DataAccess.genruntimeconfig.cache

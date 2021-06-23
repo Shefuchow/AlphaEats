@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+
+  api:
+    image: ${DOCKER_REGISTRY-}alphaeats
+    build:
+      context: .
+      dockerfile: AlphaEats.Api/Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - mssql
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Dockersql123"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+
+  client:
+    build:
+      context: .
+      dockerfile: AngularClient/Dockerfile
+    ports:
+      - "8080:4200"
+    depends_on:
+      - api
