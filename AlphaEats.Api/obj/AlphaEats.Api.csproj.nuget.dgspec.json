@@ -1,36 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.Api/AlphaEats.Api.csproj": {}
+    "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.Api\\AlphaEats.Api.csproj": {}
   },
   "projects": {
-    "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.Api/AlphaEats.Api.csproj": {
+    "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.Api\\AlphaEats.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.Api/AlphaEats.Api.csproj",
+        "projectUniqueName": "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.Api\\AlphaEats.Api.csproj",
         "projectName": "AlphaEats.Api",
-        "projectPath": "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.Api/AlphaEats.Api.csproj",
-        "packagesPath": "/Users/SefathChowdhury/.nuget/packages/",
-        "outputPath": "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.Api/obj/",
+        "projectPath": "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.Api\\AlphaEats.Api.csproj",
+        "packagesPath": "C:\\Users\\ESYNMC6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/SefathChowdhury/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ESYNMC6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://bar.prod.mtb.com/artifactory/api/nuget/v3/mtb-nuget": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/AlphaEats.DataAccess.csproj": {
-                "projectPath": "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/AlphaEats.DataAccess.csproj"
+              "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.DataAccess\\AlphaEats.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.DataAccess\\AlphaEats.DataAccess.csproj"
               }
             }
           }
@@ -86,30 +85,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/AlphaEats.DataAccess.csproj": {
+    "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.DataAccess\\AlphaEats.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/AlphaEats.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.DataAccess\\AlphaEats.DataAccess.csproj",
         "projectName": "AlphaEats.DataAccess",
-        "projectPath": "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/AlphaEats.DataAccess.csproj",
-        "packagesPath": "/Users/SefathChowdhury/.nuget/packages/",
-        "outputPath": "/Users/SefathChowdhury/Documents/Workspace/AlphaEats/AlphaEats.DataAccess/obj/",
+        "projectPath": "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.DataAccess\\AlphaEats.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ESYNMC6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ESYNMC6\\Desktop\\Workbench\\AlphaEats\\AlphaEats.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/SefathChowdhury/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ESYNMC6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://bar.prod.mtb.com/artifactory/api/nuget/v3/mtb-nuget": {}
         },
         "frameworks": {
           "net5.0": {
@@ -153,7 +151,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
