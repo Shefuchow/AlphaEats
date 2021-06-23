@@ -1,9 +1,10 @@
 ﻿# AlphaEats Web App
-A Full stack web development assessment. A quick look:
-<img src="./img/docker.png" width="200">
-<img src="./img/frontend.png" width="200">
-<img src="./img/db1.png" width="200">
-<img src="./img/db2.png" width="200">
+A Full stack web development assessment. A quick look:  
+
+<img src="./img/docker.png" width="500">
+<img src="./img/frontend.png" width="500">
+<img src="./img/db1.png" width="500">
+<img src="./img/db2.png" width="500">
 
 
 ## Author
