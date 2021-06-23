@@ -1,18 +1,26 @@
 ﻿# AlphaEats Web App
 A Full stack web development assessment
+![Containers](./img/docker.png)
+![Frontend](./img/frontend.png)
+![Database2](./img/db2.png)
+<img src="./img/docker.png" width="200">
+<img src="./img/frontend.png" width="200">
+<img src="./img/db1.png" width="200">
+<img src="./img/db2.png" width="200">
 
-
-## Project Purpose
-Display Skill in:
- - Front End developement (navigate to AngularClient folder to see front end code)
- - Backend development (Explore both .NET Core projects: AlphaEats.Api and AlphaEats.DataAccess to see single responsibility apis and data access with Entitiyframework ORM)
- - Beginner DevOps development (See dockerfiles and docker-compose.yml)
- - SOLID Principles (single responsibility, loose coupling, dependancy injection, etc)
- - SPA design patterns in Angular (see component structure)
- - Ability to learn new technologies while working (I dont work with Entity Framework or Docker, this is my first time building container images and implementing a container orchestrtion that is valuable)
 
 ## Author
 **Sefath Chowdhury** - [linkedin](https://www.linkedin.com/in/callmesefath/)
+
+## Project Purpose
+Display skill in:
+ - Front End developement 
+ - Backend development 
+ - Beginner DevOps development 
+ - SOLID Principles (single responsibility, loose coupling, dependancy injection, etc)
+ - SPA design patterns in Angular (see component structure)
+ - Ability to learn new technologies while working
+
 
 ## Built With
 * [Angular](https://angularjs.org/) - The front-end framework used
@@ -20,21 +28,10 @@ Display Skill in:
 * [.NET](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet) - Backend development platform  
 * [Docker](https://www.docker.com/) - Containerization solution
 
-## Tools Used
- - Github (version control)
- - Visual Studio (code editor)
- - IKEA mattress (for powernaps)
- - Nutribullet (for smoothies)
-
 ------
 ------
-------
-------
-------
-------
-## DevNotes
+## Get Started
 *I'm working on a Mac*
-But to get started:
 
 1. Here's the code tree:
 ```
@@ -71,3 +68,8 @@ cd AlphaEats
 
 8. If you want, you can run this in visual studio as well, and click docker-compose as startup project and run that
 
+## Tools Used
+ - Github (version control)
+ - Visual Studio (code editor)
+ - IKEA mattress (for powernaps)
+ - Nutribullet (for smoothies)
