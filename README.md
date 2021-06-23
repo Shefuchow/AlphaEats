@@ -1,8 +1,5 @@
 ﻿# AlphaEats Web App
-A Full stack web development assessment
-![Containers](./img/docker.png)
-![Frontend](./img/frontend.png)
-![Database2](./img/db2.png)
+A Full stack web development assessment. A quick look:
 <img src="./img/docker.png" width="200">
 <img src="./img/frontend.png" width="200">
 <img src="./img/db1.png" width="200">
