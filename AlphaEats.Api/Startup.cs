@@ -64,7 +64,8 @@ namespace AlphaEats
                 endpoints.MapControllers();
             });
 
-            ApplicationDbInitializer.Seed(app);
+            //No longer needed as I am seeding directly when composing up the postgres container
+            //ApplicationDbInitializer.Seed(app);
         }
     }
 }

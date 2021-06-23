@@ -2,30 +2,44 @@ version: '3.4'
 
 services:
 
-  api:
-    image: ${DOCKER_REGISTRY-}alphaeats
-    build:
-      context: .
-      dockerfile: AlphaEats.Api/Dockerfile
-    ports:
-      - "5000:80"
-    depends_on:
-      - mssql
+    api:
+        image: ${DOCKER_REGISTRY-}alphaeats
+        build:
+            context: .
+            dockerfile: AlphaEats.Api/Dockerfile
+        ports:
+            - "5000:80"
+        depends_on:
+            - postgres
 
-  mssql:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-    environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: "Dockersql123"
-      MSSQL_PID: Express
-    ports:
-      - "1433:1433"
+    postgres:
+        image: postgres
+        restart: always
+        environment: 
+            - DATABASE_HOST=127.0.0.1
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=root  
+        ports: 
+            - "5432:5432"
+        volumes: 
+            - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    
+    pgadmin-compose:
+        image: dpage/pgadmin4
+        environment: 
+            PGADMIN_DEFAULT_EMAIL: "test@gmail.com"
+            PGADMIN_DEFAULT_PASSWORD: "test123!"
+        ports: 
+            - "16543:80"
+        depends_on: 
+            - postgres  
 
-  client:
-    build:
-      context: .
-      dockerfile: AngularClient/Dockerfile
-    ports:
-      - "8080:4200"
-    depends_on:
-      - api
+    client:
+        build:
+            context: .
+            dockerfile: AngularClient/Dockerfile
+        ports:
+            - "8080:4200"
+        depends_on:
+            - api
