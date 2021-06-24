@@ -1,8 +1,8 @@
 ﻿using System;
-using AlphaEats.DataAccess.Models;
+using AlphaEats.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AlphaEats.DataAccess
+namespace AlphaEats
 {
     public class ApplicationDbContext : DbContext
     {

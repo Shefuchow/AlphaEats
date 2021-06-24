@@ -22,10 +22,13 @@
     <None Remove="Microsoft.Extensions.DependencyInjection" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <None Remove="Interfaces\" />
+    <None Remove="Models\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AlphaEats.DataAccess\AlphaEats.DataAccess.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

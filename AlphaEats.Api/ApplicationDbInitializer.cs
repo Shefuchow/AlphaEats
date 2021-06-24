@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using AlphaEats.DataAccess;
-using AlphaEats.DataAccess.Models;
+using AlphaEats;
+using AlphaEats.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 

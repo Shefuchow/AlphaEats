@@ -1,6 +1,5 @@
 ﻿using AlphaEats.Api;
-using AlphaEats.DataAccess;
-using AlphaEats.DataAccess.Services;
+using AlphaEats.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -63,8 +62,13 @@ namespace AlphaEats
                 endpoints.MapControllers();
             });
 
-            //No longer needed as I am seeding directly when composing up the postgres container
-            //ApplicationDbInitializer.Seed(app);
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                context.Database.Migrate();
+            }
+
+            ApplicationDbInitializer.Seed(app);
         }
     }
 }

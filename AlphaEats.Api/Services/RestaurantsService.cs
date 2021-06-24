@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AlphaEats.DataAccess.Interfaces;
-using AlphaEats.DataAccess.Models;
+using AlphaEats.Interfaces;
+using AlphaEats.Models;
 
-namespace AlphaEats.DataAccess.Services
+namespace AlphaEats.Services
 {
     public class RestaurantsService
     {

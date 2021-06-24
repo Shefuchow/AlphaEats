@@ -12,7 +12,7 @@ A Full stack web development assessment. A quick look:
 ## Project Purpose
 Display skill in:
  - Front End developement 
- - Backend development 
+ - Backend development with data access layer using ORM
  - Beginner DevOps development 
  - SOLID Principles (single responsibility, loose coupling, dependancy injection, etc)
  - SPA design patterns in Angular (see component structure)
@@ -34,7 +34,6 @@ Display skill in:
 ```
 .
 ├── AlphaEats.sln
-├── AlphaEats.DataAccess
 ├── AlphaEats.Api
 ├── AngularClient
 ├── docker_postgres_init.sql

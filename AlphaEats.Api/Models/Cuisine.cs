@@ -1,4 +1,4 @@
-﻿namespace AlphaEats.DataAccess.Models
+﻿namespace AlphaEats.Models
 {
     public class Cuisine
     { 
