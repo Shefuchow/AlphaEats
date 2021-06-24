@@ -51,22 +51,37 @@ cd AlphaEats
 
 3. Run `docker-compose up`
 
-4. Grab a coffee, snack, maybe even catch a movie, this takes a while
+4. Grab a coffee, snack, maybe even catch a movie, this takes a while (~20 minutes? my personal mac is a dinosaur, need an M1 chip)
 
 5. If you have Docker Desktop, here's what the containers should look like
 ![Containers](./img/docker.png)
 
-6. Front end is on `localhost:8080`
+6. Front end is on http://localhost:8080
 ![Frontend](./img/frontend.png)
 
-7. Db are seeded with given CSVs (restaurant.csv and Cuisine.csv)
+7. Back end is on http://localhost:5000/swagger/index.html visualized and documented with SwaggerUi
+![Frontend](./img/backend.png)
+
+8. PostgresAdmin is on http://localhost:16543 -> login in with  
+`test@gmail.com`
+`test123!`
+![Login](./img/login.png)
+Add New Server  
+Name `root`
+-> Connection Tab  
+![addServer](./img/addserver.png)  
+
+9. Go to root -> Schemas -> tables
+Db are seeded with given CSVs (restaurant.csv and Cuisine.csv)
 ![Database1](./img/db1.png)
 ![Database2](./img/db2.png)
 
-8. If you want, you can run this in visual studio as well, and click docker-compose as startup project and run that
+10. If you want, you can run this in visual studio as well, and click docker-compose as startup project and run that
+
+11. To stop the containers after, asssuming these 4 were the only containers running, use `docker stop $(docker ps -q)` to stop all.
 
 ## Tools Used
  - Github (version control)
  - Visual Studio (code editor)
- - IKEA mattress (for powernaps)
+ - IKEA mattress (for power naps)
  - Nutribullet (for smoothies)

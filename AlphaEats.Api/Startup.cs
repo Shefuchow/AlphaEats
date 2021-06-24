@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AlphaEats.Api;
+﻿using AlphaEats.Api;
 using AlphaEats.DataAccess;
+using AlphaEats.DataAccess.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace AlphaEats
@@ -39,8 +34,12 @@ namespace AlphaEats
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AlphaEats", Version = "v1" });
             });
 
+            //Configure DBContext with Postgres and connection string from appsetting.json (could have also configuerd with ENV var in docker-compose project)
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AlphaEats_DEV"), e => e.MigrationsAssembly("AlphaEats")));
+                options.UseNpgsql(Configuration.GetConnectionString("AlphaEats_DEV")));
+
+            //Configure the services
+            services.AddTransient<RestaurantsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
