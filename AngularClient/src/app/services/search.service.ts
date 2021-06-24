@@ -10,7 +10,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  getWeatherForecast() {
-    return this.http.get(`${this.uri}/WeatherForecast`)
+  GetTopFiveRestaurantsFromSearch() {
+    return this.http.get(`${this.uri}/topFive`)
   }
 }

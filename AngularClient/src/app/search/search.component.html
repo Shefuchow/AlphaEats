@@ -4,20 +4,24 @@
     <h1 class="title is-size-2 has-text-weight-light has-text-white mb-5">Whatcha wanna eat?</h1>
   </div>
 
-<app-search-filters>
+  <app-search-filters>
+  </app-search-filters>
 
-</app-search-filters>
-
-<div id=#title class="has-text-centered">
-  <h5 class="title is-size-4 has-text-weight-normal  has-text-white mb-5">Here's some choices!</h5>
-</div>
-
-<app-search-results
-[restaurant]="restaurant">
-
-</app-search-results>
+  <div *ngIf=(restaurant) id=#title class="has-text-centered">
+    <h5 class="title is-size-4 has-text-weight-normal  has-text-white mb-5">Here's some choices!</h5>
+  </div>
 
 
+  <app-search-results
+  [restaurant]="restaurant">
+  </app-search-results>
+
+
+  <div *ngFor="let restaurant of restaurants">
+    <app-search-results
+    [restaurant]="restaurant">
+    </app-search-results>
+  </div>
 
 
 

@@ -8,6 +8,7 @@ import { SearchService } from '../services/search.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
+
 export class SearchComponent {
   public restaurant: IRestaurant = {
     name: "mcdonalds",
@@ -17,11 +18,14 @@ export class SearchComponent {
     cuisineId: 2,
     cuisineName: "italian"
   };
+  public restaurants: IRestaurant[];
+
 
   constructor (private readonly _searchService: SearchService) {
-    _searchService.getWeatherForecast().subscribe(e => {
-      console.log(e);
-    });
+    // _searchService.getWeatherForecast().subscribe(e => {
+    //   console.log(e);
+    // });
+
   }
 
 }

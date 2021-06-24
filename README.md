@@ -1,5 +1,5 @@
 ﻿# AlphaEats Web App
-A Full stack web development assessment. A quick look:  
+A Full stack web development assessment. Most up to date code will be here:https://github.com/Shefuchow/AlphaEats A quick look:  
 
 <img src="./img/docker.png" width="700">
 <img src="./img/frontend.png" width="700">
@@ -60,6 +60,11 @@ cd AlphaEats
 
 7. Back end is on http://localhost:5000/swagger/index.html visualized and documented with SwaggerUi
 ![Frontend](./img/backend.png)
+  
+And you can current test the search api through swagger like this:
+![swagger](./img/swagger.png)
+  
+I will update the frontend to take the post request and call the api. You can check on github here: https://github.com/Shefuchow/AlphaEats
 
 8. PostgresAdmin is on http://localhost:16543 -> login in with  
 `test@gmail.com`

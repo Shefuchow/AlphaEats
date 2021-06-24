@@ -1,5 +1,5 @@
 ﻿using AlphaEats.Api;
-using AlphaEats.Services;
+using AlphaEats.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +39,7 @@ namespace AlphaEats
 
             //Configure the services
             services.AddTransient<RestaurantsService>();
+            services.AddTransient<CuisinesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

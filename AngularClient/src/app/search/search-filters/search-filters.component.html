@@ -1,4 +1,4 @@
-<div class="input-boxes level-item">
+<div class="input-boxes level-item mt-5">
   <div id=#name class="name control has-icons-left has-icons-right mx-2">
     <input class="input is-large" type="text" placeholder="Restaurant name?">
     <span class="icon is-left">
@@ -21,8 +21,9 @@
     <div id=#distance class="select mx-3">
       <select>
         <option selected>Distance</option>
-        <option>Select dropdown</option>
-        <option>With options</option>
+        <option *ngFor="let distance of distances" [value]="distance.value">
+          {{distance.tag}}
+        </option>
       </select>
     </div>
     <div class="icon is-small is-left pl-5">
@@ -34,8 +35,9 @@
     <div id=#rating class="select mx-3">
       <select>
         <option selected>Rating</option>
-        <option>Select dropdown</option>
-        <option>With options</option>
+        <option *ngFor="let rating of ratings" [value]="rating">
+          {{rating}}
+        </option>
       </select>
     </div>
     <div class="icon is-small is-left pl-5">
@@ -47,8 +49,9 @@
     <div id=#price class="select mx-3">
       <select>
         <option selected>Price</option>
-        <option>Select dropdown</option>
-        <option>With options</option>
+        <option *ngFor="let price of prices" [value]="price.value">
+          {{price.tag}}
+        </option>
       </select>
     </div>
     <div class="icon is-small is-left pl-5">
@@ -56,4 +59,8 @@
     </div>
   </div>
 
+</div>
+
+<div class="has-text-centered mb-6">
+  <button class="button is-success is-rounded has-text-white has-text-weight-semibold">Search</button>
 </div>
