@@ -41,7 +41,7 @@ namespace AlphaEats.Api.Services
             var restaurants = GetRestaurantsByName(search.RestaurantName); ;
 
             if ((restaurants != null) && (!restaurants.Any())) restaurants = GetRestaurantsByPartialName(search.RestaurantName);
-     
+
             var cuisine = _cuisinesService.GetCuisineByName(search.CuisineName);
             if (cuisine != null)
             {
@@ -49,7 +49,8 @@ namespace AlphaEats.Api.Services
                 searchResults = FilterForCuisine(searchResults, cuisine);
                 return TopSpecificedAmountOfRestaurants(search, searchResults, 5);
 
-            } else
+            }
+            else
             {
                 var searchResults = ConvertSearchResults(restaurants);
                 searchResults = FilterForCuisine(searchResults, search);
@@ -75,8 +76,7 @@ namespace AlphaEats.Api.Services
             var restaurantResults = new List<Search>();
             foreach (Restaurant restaurant in restaurants)
             {
-                //What in the world could be this error. please. anyone.
-                restaurantResults.Add(new Search(restaurant.Name, restaurant.CustomerRating, restaurant.Distance, restaurant.Price, restaurant.CuisineId, null));
+                restaurantResults.Add(new Search(restaurant.Name, restaurant.CustomerRating, restaurant.Distance, restaurant.Price, restaurant.CuisineId));
             }
             return restaurantResults;
         }
@@ -98,7 +98,7 @@ namespace AlphaEats.Api.Services
             restaurants = restaurants.Where(e => cuisineDictionary.ContainsKey((int)e.CuisineId)).ToList();
             foreach (Search restaurant in restaurants)
             {
-                if(cuisineDictionary.ContainsKey((int)restaurant.CuisineId)) restaurant.CuisineName = cuisineDictionary[(int)restaurant.CuisineId];
+                if (cuisineDictionary.ContainsKey((int)restaurant.CuisineId)) restaurant.CuisineName = cuisineDictionary[(int)restaurant.CuisineId];
             }
             return restaurants;
         }

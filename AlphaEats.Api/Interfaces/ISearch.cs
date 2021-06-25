@@ -6,7 +6,7 @@
         public int CustomerRating { get; set; }
         public int Distance { get; set; }
         public int Price { get; set; }
-        public int? CuisineId { get; set; }
+        public int CuisineId { get; set; }
         public string? CuisineName { get; set; }
     }
 }
