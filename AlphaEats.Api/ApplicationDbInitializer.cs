@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
-using AlphaEats;
-using AlphaEats.Models;
+using AlphaEats.Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 

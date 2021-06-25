@@ -1,4 +1,4 @@
-﻿namespace AlphaEats.Models
+﻿namespace AlphaEats.Api.Models
 {
     public class Cuisine
     { 

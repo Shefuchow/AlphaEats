@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-search-filters',
@@ -9,7 +10,7 @@ export class SearchFiltersComponent{
   public buttonClass = "disabled";
   public errorMessage = "";
   //Arrays to populate option tags
-  distances: any[] = [
+  distances: object[] = [
     {value: 2, tag: "~2mi"},
     {value: 4, tag: "~4mi"},
     {value: 6, tag: "~6mi"},
@@ -17,14 +18,28 @@ export class SearchFiltersComponent{
     {value: 10, tag: "~10mi"},
   ];
 
-  ratings = [1,2,3,4,5];
+  ratings: number[] = [1,2,3,4,5];
 
-  prices: any[] = [
+  prices: object[] = [
     {value: 10, tag: "~ $10"},
     {value: 20, tag: "~ $20"},
     {value: 30, tag: "~ $30"},
     {value: 40, tag: "~ $40"},
     {value: 50, tag: "~ $50"},
   ];
+
+
+  public search(restaurantInput: string, cuisineInput: string, distanceInput: number, ratingInput: number, priceInput: number){
+    const payload = {
+      RestaurantInput: restaurantInput,
+      CuisineInput: cuisineInput,
+      DistanceInput: distanceInput,
+      RatingInput: ratingInput,
+      PriceInput: priceInput
+    };
+    this._searchService.GetTopFiveRestaurantsFromSearch(payload).subscribe(e=> console.log(e));
+  }
+
+  constructor(private readonly _searchService: SearchService) {}
 
 }

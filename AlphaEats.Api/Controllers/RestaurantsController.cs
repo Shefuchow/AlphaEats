@@ -1,5 +1,6 @@
-﻿using AlphaEats.Api.Services;
-using AlphaEats.Models;
+﻿using AlphaEats.Api.Models;
+using AlphaEats.Api.Services;
+using AlphaEats.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,9 +40,9 @@ namespace AlphaEats.Api.Controllers
         }
 
         [HttpPost("restaurant-search")]
-        public IActionResult TopFiveRestaurantsFromSearch(string restaurantInput, string cuisineInput, int distanceInput, int ratingInput, int priceInput)
+        public IActionResult TopFiveRestaurantsFromSearch([FromBody] Search search)
         {
-            var restaurants = _restaurantsService.TopFiveRestaurantsFromSearch(restaurantInput, cuisineInput, distanceInput, ratingInput, priceInput);
+            var restaurants = _restaurantsService.TopFiveRestaurantsFromSearch(search);
             return Ok(restaurants);
         }
 

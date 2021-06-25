@@ -1,12 +1,12 @@
 <div class="input-boxes level-item mt-5">
-  <div id=#name class="name control has-icons-left has-icons-right mx-2">
+  <div #name class="name control has-icons-left has-icons-right mx-2">
     <input class="input is-large" type="text" placeholder="Restaurant name?">
     <span class="icon is-left">
       <i class="fas fa-utensils"></i>
     </span>
 
   </div>
-  <div id=#cuisine class="cuisine control has-icons-left has-icons-right mx-2">
+  <div #cuisine class="cuisine control has-icons-left has-icons-right mx-2">
     <input class="input is-large" type="text" placeholder="Cuisine? indian, thai...">
     <span class="icon is-left">
       <i class="fas fa-drumstick-bite"></i>
@@ -18,7 +18,7 @@
 <div class="selectors level-item p-6">
 
   <div class="control has-icons-left">
-    <div id=#distance class="select mx-3">
+    <div #distance class="select mx-3">
       <select>
         <option selected>Distance</option>
         <option *ngFor="let distance of distances" [value]="distance.value">
@@ -32,7 +32,7 @@
   </div>
 
   <div class="control has-icons-left">
-    <div id=#rating class="select mx-3">
+    <div #rating class="select mx-3">
       <select>
         <option selected>Rating</option>
         <option *ngFor="let rating of ratings" [value]="rating">
@@ -46,7 +46,7 @@
   </div>
 
   <div class="control has-icons-left">
-    <div id=#price class="select mx-3">
+    <div #price class="select mx-3">
       <select>
         <option selected>Price</option>
         <option *ngFor="let price of prices" [value]="price.value">
@@ -62,5 +62,5 @@
 </div>
 
 <div class="has-text-centered mb-6">
-  <button class="button is-success is-rounded has-text-white has-text-weight-semibold">Search</button>
+  <button (click)="search(name.value, cuisine.value, distance.value, rating.value, price.value)" class="button is-success is-rounded has-text-white has-text-weight-semibold">Search</button>
 </div>

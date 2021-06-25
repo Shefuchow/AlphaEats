@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using AlphaEats.Interfaces;
+using AlphaEats.Api.Interfaces;
 
-namespace AlphaEats.Models
+namespace AlphaEats.Api.Models
 {
     public class Restaurant : IRestaurant
     {
@@ -11,6 +11,5 @@ namespace AlphaEats.Models
         public int Distance { get; set; }
         public int Price { get; set; }
         public int CuisineId { get; set; }
-        public string CuisineName { get; set; }
     }
 }

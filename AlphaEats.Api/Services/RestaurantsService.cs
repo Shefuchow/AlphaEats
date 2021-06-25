@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AlphaEats.Models;
+using AlphaEats.Api.Interfaces;
+using AlphaEats.Api.Models;
 
 namespace AlphaEats.Api.Services
 {
@@ -15,7 +16,7 @@ namespace AlphaEats.Api.Services
             _cuisinesService = cuisinesService;
         }
 
-        public void AddRestaurant(Restaurant restaurant)
+        public void AddRestaurant(IRestaurant restaurant)
         {
             var _restaurant = new Restaurant()
             {
@@ -35,30 +36,72 @@ namespace AlphaEats.Api.Services
 
         public List<Restaurant> GetRestaurantsByPartialName(string partialName) => _context.Restaurants.Where(e => e.Name.ToLower().Contains(partialName.ToLower())).ToList();
 
-        public List<Restaurant> TopFiveRestaurantsFromSearch(string restaurantNameInput, string cuisineNameInput, int distanceInput, int ratingInput, int priceInput)
+        public List<Search> TopFiveRestaurantsFromSearch(Search search)
         {
-            var restaurants = GetRestaurantsByName(restaurantNameInput); ;
+            var restaurants = GetRestaurantsByName(search.RestaurantName); ;
 
-            if ((restaurants != null) && (!restaurants.Any())) restaurants = GetRestaurantsByPartialName(restaurantNameInput);
+            if ((restaurants != null) && (!restaurants.Any())) restaurants = GetRestaurantsByPartialName(search.RestaurantName);
      
-            var cuisine = _cuisinesService.GetCuisineByName(cuisineNameInput);
+            var cuisine = _cuisinesService.GetCuisineByName(search.CuisineName);
             if (cuisine != null)
             {
-                restaurants = restaurants.Where(e => e.CuisineId == cuisine.Id).ToList();
+                var searchResults = ConvertSearchResults(restaurants);
+                searchResults = FilterForCuisine(searchResults, cuisine);
+                return TopSpecificedAmountOfRestaurants(search, searchResults, 5);
+
             } else
             {
-                var cuisines = _cuisinesService.GetCuisinesByPartialName(cuisineNameInput);
-                HashSet<int> cuisineIds = new HashSet<int>(cuisines.Select(e => e.Id));
-                restaurants = restaurants.Where(e => cuisineIds.Contains(e.CuisineId)).ToList();
+                var searchResults = ConvertSearchResults(restaurants);
+                searchResults = FilterForCuisine(searchResults, search);
+                return TopSpecificedAmountOfRestaurants(search, searchResults, 5);
             }
 
-            restaurants = restaurants.Where(e => e.Distance <= distanceInput && e.CustomerRating >= ratingInput && e.Price <= priceInput).ToList();
+        }
+
+        //-------------------------------------------------------------- HELPER FUNCTIONS --------------------------------------------------------
+
+        private List<Search> TopSpecificedAmountOfRestaurants(Search search, List<Search> restaurants, int number)
+        {
+            restaurants = restaurants.Where(e => e.Distance <= search.Distance && e.CustomerRating >= search.CustomerRating && e.Price <= search.Price).ToList();
 
             return restaurants.OrderBy(e => e.Distance).
             ThenByDescending(e => e.CustomerRating).
             ThenBy(e => e.Price).
-            Take(5).ToList();
+            Take(number).ToList();
+        }
 
-        } 
+        private List<Search> ConvertSearchResults(List<Restaurant> restaurants)
+        {
+            var restaurantResults = new List<Search>();
+            foreach (Restaurant restaurant in restaurants)
+            {
+                //What in the world could be this error. please. anyone.
+                restaurantResults.Add(new Search(restaurant.Name, restaurant.CustomerRating, restaurant.Distance, restaurant.Price, restaurant.CuisineId, null));
+            }
+            return restaurantResults;
+        }
+
+        private List<Search> FilterForCuisine(List<Search> restaurants, Cuisine cuisine)
+        {
+            restaurants = restaurants.Where(e => e.CuisineId == cuisine.Id).ToList();
+            foreach (Search restaurant in restaurants)
+            {
+                restaurant.CuisineName = cuisine.Name;
+            }
+            return restaurants;
+        }
+
+        private List<Search> FilterForCuisine(List<Search> restaurants, Search search)
+        {
+            var cuisines = _cuisinesService.GetCuisinesByPartialName(search.CuisineName);
+            Dictionary<int, string> cuisineDictionary = cuisines.ToDictionary(e => e.Id, e => e.Name);
+            restaurants = restaurants.Where(e => cuisineDictionary.ContainsKey((int)e.CuisineId)).ToList();
+            foreach (Search restaurant in restaurants)
+            {
+                if(cuisineDictionary.ContainsKey((int)restaurant.CuisineId)) restaurant.CuisineName = cuisineDictionary[(int)restaurant.CuisineId];
+            }
+            return restaurants;
+        }
+
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using AlphaEats.Models;
+﻿using AlphaEats.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AlphaEats
