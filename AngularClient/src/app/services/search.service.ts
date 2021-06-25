@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IRestaurant } from '../interfaces/i-restaurant';
+import { ISearch } from '../interfaces/i-search';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,8 +12,8 @@ export class SearchService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  GetTopFiveRestaurantsFromSearch(search: IRestaurant): Observable<IRestaurant[]> {
+  GetTopFiveRestaurantsFromSearch(search: ISearch): Observable<ISearch[]> {
     const url: string = `${this.uri}/api/Restaurants/restaurant-search`;
-    return this._httpClient.post<IRestaurant[]>(url, search);
+    return this._httpClient.post<ISearch[]>(url, search);
   }
 }

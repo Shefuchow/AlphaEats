@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IRestaurant } from '../../interfaces/i-restaurant';
+import { ISearch } from '../../interfaces/i-search';
 
 @Component({
   selector: 'app-search-results',
@@ -7,6 +7,6 @@ import { IRestaurant } from '../../interfaces/i-restaurant';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent{
-  @Input() public restaurant?: IRestaurant;
+  @Input() public searchResult: ISearch;
 
 }

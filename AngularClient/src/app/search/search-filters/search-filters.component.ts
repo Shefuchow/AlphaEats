@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ISearch } from 'src/app/interfaces/i-search';
+import { Search } from 'src/app/models/search';
 import { SearchService } from 'src/app/services/search.service';
 
 @Component({
@@ -7,8 +9,6 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./search-filters.component.scss']
 })
 export class SearchFiltersComponent{
-  public buttonClass = "disabled";
-  public errorMessage = "";
   //Arrays to populate option tags
   distances: object[] = [
     {value: 2, tag: "~2mi"},
@@ -27,19 +27,34 @@ export class SearchFiltersComponent{
     {value: 40, tag: "~ $40"},
     {value: 50, tag: "~ $50"},
   ];
+  @Output() public searchResultsEvent:EventEmitter<ISearch[]> = new EventEmitter<ISearch[]>()
+  /* Hello, I was going to implement angular forms with code like this:
+  [class.is-danger]="restaurantName.invalid && restaurantName.touched" [(ngModel)]="searchModel.restaurantName"
+  instead of the error message below.
+  Also was going to implement searchmodel with ngModel passed into the payload, so we dont have all those parameters in search() as that is bad practice
+  However, for the interest of time, I had to submit as I have other interviews, and I dont want to keep this interview waiting. Latest Code will be on my github.
+  */
+  public errorMessage: string = "Hey, please fill out all the fields!";
+  public error: boolean = false;
+  public searchModel: Search;
 
-
-  public search(restaurantInput: string, cuisineInput: string, distanceInput: number, ratingInput: number, priceInput: number){
-    const payload = {
-      RestaurantInput: restaurantInput,
-      CuisineInput: cuisineInput,
-      DistanceInput: distanceInput,
-      RatingInput: ratingInput,
-      PriceInput: priceInput
+  public search(restaurantName: string, cuisineName: string, distance: number, customerRating: number, price: number){
+    ((restaurantName == "" || cuisineName == "" || isNaN(distance) || isNaN(customerRating) || isNaN(price)) ? this.error = true : this.error=false);
+    const payload: ISearch = {
+      restaurantName: restaurantName,
+      customerRating: customerRating,
+      distance: distance,
+      price: price,
+      cuisineId: 0,
+      cuisineName: cuisineName
     };
-    this._searchService.GetTopFiveRestaurantsFromSearch(payload).subscribe(e=> console.log(e));
+    this._searchService.GetTopFiveRestaurantsFromSearch(payload)
+      .subscribe(response =>
+        this.searchResultsEvent?.emit(response)
+      );
   }
 
-  constructor(private readonly _searchService: SearchService) {}
+  constructor(private readonly _searchService: SearchService) {
+  }
 
 }

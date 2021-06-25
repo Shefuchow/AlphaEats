@@ -32,7 +32,7 @@ namespace AlphaEats.Api.Services
         public List<Restaurant> GetAllRestaurants() => _context.Restaurants.ToList();
 
         //From the csv, I see all unique restaurant names, but we cannot assume this in real life
-        public List<Restaurant> GetRestaurantsByName(string name) => _context.Restaurants.Where(e => e.Name.ToLower() == name.ToLower()).ToList();
+        public List<Restaurant> GetRestaurantsByName(string name) => _context.Restaurants.Where(e => e.Name.ToLower().Equals(name.ToLower())).Select(y=>y).ToList();
 
         public List<Restaurant> GetRestaurantsByPartialName(string partialName) => _context.Restaurants.Where(e => e.Name.ToLower().Contains(partialName.ToLower())).ToList();
 

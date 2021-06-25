@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IRestaurant } from '../interfaces/i-restaurant';
-import { ICuisine } from '../interfaces/i-cuisine';
+import { ISearch } from '../interfaces/i-search';
 import { SearchService } from '../services/search.service';
 
 @Component({
@@ -10,22 +9,15 @@ import { SearchService } from '../services/search.service';
 })
 
 export class SearchComponent {
-  public restaurant: IRestaurant = {
-    name: "mcdonalds",
-    distance: 10,
-    rating: 5,
-    price: 10,
-    cuisineId: 2,
-    cuisineName: "italian"
-  };
-  public restaurants: IRestaurant[];
+  public searchResults: ISearch[];
+  public searchMessage: string = "Here's some choices!";
+  public noResults: string = "Couldn't find any reccomendations :( \n Try Again!";
 
+  public recieveSearchResults(searchResults: ISearch[]){
+    this.searchResults = searchResults;
+  }
 
   constructor (private readonly _searchService: SearchService) {
-    // _searchService.getWeatherForecast().subscribe(e => {
-    //   console.log(e);
-    // });
-
   }
 
 }

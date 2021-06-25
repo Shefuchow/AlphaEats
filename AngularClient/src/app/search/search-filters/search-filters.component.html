@@ -1,66 +1,72 @@
-<div class="input-boxes level-item mt-5">
-  <div #name class="name control has-icons-left has-icons-right mx-2">
-    <input class="input is-large" type="text" placeholder="Restaurant name?">
-    <span class="icon is-left">
-      <i class="fas fa-utensils"></i>
-    </span>
+<form #searchForm="ngForm">
+  <div class="input-boxes level-item mt-5">
+    <div class="name control has-icons-left has-icons-right mx-2">
+      <input #restaurantName name="restaurantName" required class="input is-large" type="text" placeholder="Restaurant name?">
+      <span class="icon is-left">
+        <i class="fas fa-utensils"></i>
+      </span>
 
-  </div>
-  <div #cuisine class="cuisine control has-icons-left has-icons-right mx-2">
-    <input class="input is-large" type="text" placeholder="Cuisine? indian, thai...">
-    <span class="icon is-left">
-      <i class="fas fa-drumstick-bite"></i>
-    </span>
-
-  </div>
-</div>
-
-<div class="selectors level-item p-6">
-
-  <div class="control has-icons-left">
-    <div #distance class="select mx-3">
-      <select>
-        <option selected>Distance</option>
-        <option *ngFor="let distance of distances" [value]="distance.value">
-          {{distance.tag}}
-        </option>
-      </select>
     </div>
-    <div class="icon is-small is-left pl-5">
-      <i class="fas fa-road"></i>
+    <div class="cuisine control has-icons-left has-icons-right mx-2">
+      <input #cuisineName name="cuisineName" required class="input is-large" type="text" placeholder="Cuisine? indian, thai...">
+      <span class="icon is-left">
+        <i class="fas fa-drumstick-bite"></i>
+      </span>
+
     </div>
   </div>
 
-  <div class="control has-icons-left">
-    <div #rating class="select mx-3">
-      <select>
-        <option selected>Rating</option>
-        <option *ngFor="let rating of ratings" [value]="rating">
-          {{rating}}
-        </option>
-      </select>
+  <div class="selectors level-item p-6">
+
+    <div class="control has-icons-left">
+      <div class="select mx-3">
+        <select #distance name="distance" required>
+          <option selected>Distance</option>
+          <option *ngFor="let distance of distances" [value]="distance.value">
+            {{distance.tag}}
+          </option>
+        </select>
+      </div>
+      <div class="icon is-small is-left pl-5">
+        <i class="fas fa-road"></i>
+      </div>
     </div>
-    <div class="icon is-small is-left pl-5">
-      <i class="fas fa-star-half-alt"></i>
+
+    <div class="control has-icons-left">
+      <div  class="select mx-3">
+        <select #rating name="rating" required>
+          <option selected>Rating</option>
+          <option *ngFor="let rating of ratings" [value]="rating">
+            {{rating}}
+          </option>
+        </select>
+      </div>
+      <div class="icon is-small is-left pl-5">
+        <i class="fas fa-star-half-alt"></i>
+      </div>
     </div>
+
+    <div class="control has-icons-left">
+      <div class="select mx-3">
+        <select #price name="price" required>
+          <option selected>Price</option>
+          <option *ngFor="let price of prices" [value]="price.value">
+            {{price.tag}}
+          </option>
+        </select>
+      </div>
+      <div class="icon is-small is-left pl-5">
+        <i class="fas fa-dollar-sign"></i>
+      </div>
+    </div>
+
   </div>
 
-  <div class="control has-icons-left">
-    <div #price class="select mx-3">
-      <select>
-        <option selected>Price</option>
-        <option *ngFor="let price of prices" [value]="price.value">
-          {{price.tag}}
-        </option>
-      </select>
-    </div>
-    <div class="icon is-small is-left pl-5">
-      <i class="fas fa-dollar-sign"></i>
-    </div>
+  <div class="has-text-centered mb-6">
+    <button (click)="search(restaurantName.value, cuisineName.value, distance.value, rating.value, price.value)" class="button is-success is-rounded has-text-white has-text-weight-semibold">Search</button>
   </div>
+</form>
 
-</div>
-
-<div class="has-text-centered mb-6">
-  <button (click)="search(name.value, cuisine.value, distance.value, rating.value, price.value)" class="button is-success is-rounded has-text-white has-text-weight-semibold">Search</button>
+<div *ngIf="error" class="has-text-centered">
+  <h5 class="title is-size-4 has-text-weight-normal has-text-danger mb-5">{{errorMessage}}</h5>
 </div>
